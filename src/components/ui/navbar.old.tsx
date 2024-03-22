@@ -2,47 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-const projects = [
-  {
-    label: `Software`,
-    items: [
-      {
-        label: `SODA for SPARC`,
-        href: `/sodaforsparc`,
-      },
-      {
-        label: `AI-READI`,
-        href: `/aireadi`,
-      },
-      {
-        label: `FAIRshare`,
-        href: `/fairshare`,
-      },
-      {
-        label: `KnowMore`,
-        href: `/knowmore`,
-      },
-      {
-        label: `SPARClink`,
-        href: `/sparclink`,
-      },
-      {
-        label: `AQUA`,
-        href: `/aqua`,
-      },
-    ],
-  },
-  {
-    label: `Guidelines`,
-    items: [
-      {
-        label: `FAIR BioRS`,
-        href: `/guidelines`,
-      },
-    ],
-  },
-];
-
 export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -203,7 +162,7 @@ export default function Navbar() {
           </svg>
         </Link>
         <div className="hidden md:block">
-          <div className="md:text-md flex h-full flex-row items-center justify-center font-semibold sm:text-sm">
+          <div className="md:text-md flex h-full flex-row items-center justify-center font-medium sm:text-sm">
             <Link href="/blog" passHref>
               <div
                 className={
@@ -235,7 +194,7 @@ export default function Navbar() {
               className="group relative rounded-lg"
             >
               <button className=" mx-1 flex flex-row items-center border-none py-2 font-medium sm:px-1 lg:px-3">
-                <div className="flex w-max flex-row items-center justify-center font-semibold">
+                <div className="flex w-max flex-row items-center justify-center">
                   Our Projects
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -255,35 +214,107 @@ export default function Navbar() {
               </button>
               <div
                 id="project-container"
-                className="absolute right-4 z-10 hidden w-max group-hover:block"
+                className="absolute right-4 z-10 hidden w-max py-1 group-hover:block"
               >
-                <div className="text-md rounded-lg border-2 border-pink-200 shadow-lg bg-gray-100 text-left flex flex-col">
-                  {projects.map((project, index) => (
-                    <div key={index} className="flex flex-col">
-                      <div className=" text-pink-800 pl-1 py-1 border-b border-pink-200">
-                        {project.label}
+                <div className="text-md rounded-lg border-2 border-gray-200 bg-gray-100 py-4 text-left shadow-lg">
+                  <div className="flex flex-col">
+                    <Link href="/sodaforsparc" passHref>
+                      <div
+                        id="soda-page"
+                        className={
+                          `nav-item hover-underline-animation mt-2` +
+                          (router.pathname === `/sodaforsparc`
+                            ? ` router-link-active `
+                            : ` `)
+                        }
+                        data-umami-event="Navigation link"
+                        data-umami-event-location="Header"
+                        data-umami-event-value="SODA for SPARC"
+                      >
+                        SODA for SPARC
                       </div>
-                      <div className="flex flex-col">
-                        {project.items.map((item, index) => (
-                          <Link key={index} href={item.href} passHref>
-                            <div
-                              className={
-                                `nav-item hover-underline-animation mt-1` +
-                                (router.pathname === item.href
-                                  ? ` router-link-active `
-                                  : ` `)
-                              }
-                              data-umami-event="Navigation link"
-                              data-umami-event-location="Header"
-                              data-umami-event-value={item.label}
-                            >
-                              {item.label}
-                            </div>
-                          </Link>
-                        ))}
+                    </Link>
+                    <Link href="/aireadi" passHref>
+                      <div
+                        id="aireadi-page"
+                        className={
+                          `nav-item hover-underline-animation mt-2 w-[200px]` +
+                          (router.pathname === `/aireadi`
+                            ? ` router-link-active `
+                            : ` `)
+                        }
+                        data-umami-event="Navigation link"
+                        data-umami-event-location="Header"
+                        data-umami-event-value="AI-READI"
+                      >
+                        AI-READI
                       </div>
-                    </div>
-                  ))}
+                    </Link>
+                    <Link href="/fairshare" passHref>
+                      <div
+                        id="fairshare-page"
+                        className={
+                          `nav-item hover-underline-animation mt-2 w-[200px]` +
+                          (router.pathname === `/fairshare`
+                            ? ` router-link-active `
+                            : ` `)
+                        }
+                        data-umami-event="Navigation link"
+                        data-umami-event-location="Header"
+                        data-umami-event-value="FAIRshare"
+                      >
+                        FAIRshare
+                      </div>
+                    </Link>
+                    <Link href="/knowmore" passHref>
+                      <div
+                        id="knowmore-page"
+                        className={
+                          `nav-item hover-underline-animation mt-2` +
+                          (router.pathname === `/knowmore`
+                            ? ` router-link-active `
+                            : ` `)
+                        }
+                        data-umami-event="Navigation link"
+                        data-umami-event-location="Header"
+                        data-umami-event-value="KnowMore"
+                      >
+                        KnowMore
+                      </div>
+                    </Link>
+                    <Link href="/sparclink" passHref>
+                      <div
+                        id="sparclink-page"
+                        className={
+                          `nav-item hover-underline-animation mt-2` +
+                          (router.pathname === `/sparclink`
+                            ? ` router-link-active `
+                            : ` `)
+                        }
+                        data-umami-event="Navigation link"
+                        data-umami-event-location="Header"
+                        data-umami-event-value="SPARClink"
+                      >
+                        SPARClink
+                      </div>
+                    </Link>
+                    <Link href="/aqua" passHref>
+                      <div
+                        id="aqua-page"
+                        className={
+                          `nav-item hover-underline-animation mt-2` +
+                          (router.pathname === `/aqua`
+                            ? ` router-link-active `
+                            : ` `)
+                        }
+                        data-umami-event="Navigation link"
+                        data-umami-event-location="Header"
+                        data-umami-event-value="AQUA"
+                      >
+                        AQUA
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
